@@ -9,12 +9,12 @@
 
 public class Solution {
 	public ArrayList<Integer> wave(ArrayList<Integer> a) {
-	    Collections.sort(a);
-	    for(int i = 0; i < a.size()-1; i += 2){
-	        Integer temp = a.get(i);
+	    Collections.sort(a); //Sort first
+	    for(int i = 0; i < a.size()-1; i += 2){ //increment by 2
+	        Integer temp = a.get(i); //swap pair then move on to the next two
 	        a.set(i, a.get(i+1));
 	        a.set(i+1, temp);
 	    }
-	    return a;
+	    return a; //return results
 	}
 }
