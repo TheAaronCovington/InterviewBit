@@ -8,40 +8,39 @@
  */
 public class Solution {
 	public ListNode getIntersectionNode(ListNode a, ListNode b) {
-	    int countA = 0;
-	    int countB = 0;
-	    ListNode current = a; ListNode currentB = b;
-	    while(current != null){
+	    ListNode currentA = a, currentB = b;
+	    int countA = 0, countB = 0;
+	    while(currentA != null){
 	        countA++;
-	        current = current.next;
+	        currentA = currentA.next;
 	    }
 	    while(currentB != null){
 	        countB++;
 	        currentB = currentB.next;
 	    }
-	    current = a; currentB = b;
+	    currentA = a; currentB = b;
 	    while(countA > 0 && countB > 0){
 	        if(countA > countB){
 	            countA--;
-	            current = current.next;
+	            currentA = currentA.next;
 	        }
-	        if(countB > countA){
+	        else if(countB > countA){
 	            countB--;
 	            currentB = currentB.next;
 	        }
-	        if(countA == countB){
-	            if(current == currentB){
-	                return current;
+	        else{
+	            if(currentA == currentB){
+	                return currentA;
 	            }
 	            else{
-	                current = current.next;
+	                currentA = currentA.next;
 	                currentB = currentB.next;
 	                countA--;
 	                countB--;
 	            }
 	        }
 	    }
-	    
 	    return null;
 	}
 }
+
